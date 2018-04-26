@@ -16,6 +16,18 @@ public class ExecutorServiceHandler<S> extends DecoratedHandler<S> {
         this.exceptionHandler = exceptionHandler;
     }
 
+
+    public ExecutorServiceHandler(Handler<S> other,
+                                  ExecutorService pool
+    ) {
+
+        this(
+                other,
+                pool,
+                (t, e) -> System.out.println("uncaught: " + t + " error " + e)
+        );
+    }
+
     @Override
     public void handle(S s) {
 //        pool.submit(() -> {

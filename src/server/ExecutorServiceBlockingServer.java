@@ -19,8 +19,7 @@ public class ExecutorServiceBlockingServer {
         Handler<Socket> handler = new ExecutorServiceHandler<>(
                 new PrintingHandler<>(
                         new TransmogrifyHandler()),
-                Executors.newCachedThreadPool(),
-                (t, e) -> System.out.println("uncaught: " + t + " error " + e)
+                Executors.newFixedThreadPool(10)
         );
         while (true){
             System.out.println("before accept");
