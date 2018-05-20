@@ -15,7 +15,7 @@ import handler.TransmogrifyChannelHandler;
 public class BlockingNIOServer {
     public static void main(String[] args) throws IOException {
         ServerSocketChannel ssc = ServerSocketChannel.open();
-        ssc.bind(new InetSocketAddress(8080));
+        ssc.bind(new InetSocketAddress(8089));
         System.out.println(ssc.toString());
         Handler<SocketChannel> handler = new ExecutorServiceHandler<>(
                 new PrintingHandler<>(
